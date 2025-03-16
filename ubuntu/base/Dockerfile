@@ -1,6 +1,5 @@
-FROM ubuntu
-
-RUN yes | unminimize
+# FROM ubuntu
+FROM php:8.3.11
 # Install necessary packages
 RUN apt update -y && \
     apt install -y man-db git ssh openssh-client curl zsh sudo gosu && \
