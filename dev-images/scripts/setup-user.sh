@@ -67,3 +67,13 @@ else
     echo "Sudoers entry for $USER_NAME already exists"
 fi
 
+# Check if the docker group exists
+if getent group docker > /dev/null; then
+    echo "Docker group exists. Adding user to docker group..."
+    usermod -aG docker $USER_NAME
+    newgrp docker
+    echo "User added to docker group. You may need to log out and back in for changes to take effect."
+else
+    echo "Docker group does not exist. Skipping user modification."
+fi
+
