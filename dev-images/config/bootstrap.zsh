@@ -1,2 +1,4 @@
 #/usr/bin/zsh
-source $DOT_FILE_CONFIG_DIR/zsh.zsh
+echo "checking for config dir: $(env | grep DOT_FILE_CONFIG)"
+. $DOT_FILE_CONFIG_DIR/zsh.zsh
+
