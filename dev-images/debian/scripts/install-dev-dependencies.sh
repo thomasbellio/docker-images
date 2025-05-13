@@ -1,6 +1,9 @@
 #!/bin/bash
 apt update -y && \
+apt install -y dnsutils && \
+apt install -y pass && \
 apt install -y man-db git ssh openssh-client curl zsh sudo gosu && \
+apt install -y xauth x11-apps xclip && \ # support clipboard sharing between container and host
 chsh -s $(which zsh) && \
 mkdir -p /root/.ssh && \
 mkdir -p /root/code/ && \

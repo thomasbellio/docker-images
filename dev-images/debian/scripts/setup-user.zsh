@@ -55,14 +55,14 @@ if [ ! -f "$SETUP_SCRIPT_DIR/bootstrapped-user.txt" ]; then
                 # Update user's home directory in /etc/passwd
                 usermod -d "$HOME_DIR" "$USER_NAME"
             else
-                echo "Home directory $HOME_DIR already exists and is owned by $USER_NAME"
+                echo "Home directory $HOME_DIR already exists...."
             fi
         fi
     else
         echo "Creating $USER_NAME user with UID $USER_UID..."
         useradd -m -u $USER_UID -g $GROUP_NAME -s $(which zsh) $USER_NAME
     fi
-
+    chown -R "$USER_NAME:$(id -gn "$USER_NAME")" "$HOME_DIR"
     # Check if the sudoers file for the user already exists
     if [ ! -f "/etc/sudoers.d/$USER_NAME" ]; then
         echo "$USER_NAME ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/$USER_NAME
