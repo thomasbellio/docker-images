@@ -12,13 +12,13 @@ export GROUP_NAME=${GROUP_NAME:-$USER_NAME}
 export DOCKER_SOCKET=${DOCKER_SOCK:-"/var/run/docker.sock"}
 
 if [ ! -f "setup-user.log" ]; then
-       ./dev-images/debian/scripts/setup-user.sh | tee setup-user.log
+       ./scripts/setup-user.sh | tee setup-user.log
 fi
 echo "Changing directory to /home/$USER_NAME"
 cd /home/$USER_NAME
 if [ ! -f "dev-image-bootstrap.log" ]; then
     echo "Bootstrapping the shell environment for $USER_NAME"
-    sudo -u $USER_NAME -H env DISPLAY="$DISPLAY" OPENAI_API_KEY="$OPENAI_API_KEY" DOT_FILES_DIR="$DOT_FILEs_DIR" $SETUP_SCRIPT_DIR/dev-images/bootstrap/dotfiles.sh | tee dev-image-bootstrap.log
+    sudo -u $USER_NAME -H env DISPLAY="$DISPLAY" OPENAI_API_KEY="$OPENAI_API_KEY" DOT_FILES_DIR="$DOT_FILES_DIR" $SETUP_SCRIPT_DIR/scripts/dotfiles.zsh | tee dev-image-bootstrap.log
     echo "Bootstrapped the environment."
 fi
 echo "starting container with user $USER_NAME and docker socket $DOCKER_SOCK"
