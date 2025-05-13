@@ -2,7 +2,7 @@
 apt update -y && \
 apt install -y dnsutils && \
 apt install -y pass && \
-apt install -y man-db git ssh openssh-client curl zsh sudo gosu && \
+apt install -y man-db git ssh openssh-client curl zsh sudo gosu tmux && \
 apt install -y xauth x11-apps xclip && \
 chsh -s $(which zsh) && \
 mkdir -p /root/.ssh && \
