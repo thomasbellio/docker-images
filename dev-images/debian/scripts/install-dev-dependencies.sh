@@ -11,3 +11,4 @@ curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x8
 rm -rf /opt/nvim && \
 tar -C /opt -xzf nvim-linux-x86_64.tar.gz
 
+./install-docker.sh

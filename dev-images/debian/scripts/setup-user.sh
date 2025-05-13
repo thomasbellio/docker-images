@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/bash
 set -e # stop on errors
 
 if [ ! -f "$SETUP_SCRIPT_DIR/bootstrapped-user.txt" ]; then
