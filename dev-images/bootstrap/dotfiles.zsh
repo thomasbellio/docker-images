@@ -1,4 +1,4 @@
-#/usr/bin/zsh
+#!/usr/bin/zsh
 
 echo "DOT FILES DIR: $DOT_FILES_DIR"
 function cloneRepo() {

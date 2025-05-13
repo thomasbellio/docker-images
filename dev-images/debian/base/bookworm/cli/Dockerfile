@@ -10,7 +10,7 @@ ADD dev-images/environment/zshenv /etc/zsh/zshenv
 RUN chmod +x dev-images/bootstrap/dotfiles.sh && \
     chmod +x -R dev-images/debian/scripts/*.sh
 RUN ./dev-images/debian/scripts/install-dev-dependencies.sh | tee $HOME/dev-image-install.log
-RUN DOT_FILES_DIR=$DOT_FILES_DIR ./dev-images/debian/bootstrap/dotfiles.sh | tee --append $HOME/dev-image-bootstrap.log
+RUN DOT_FILES_DIR=$DOT_FILES_DIR ./dev-images/bootstrap/dotfiles.sh | tee --append $HOME/dev-image-bootstrap.log
 # RUN chmod 777 $DOT_FILES_DIR && \
 #     chmod 777 $DOT_FILES_DIR/* # ensure all users can access the dot files
 ADD ./dev-images/debian/scripts/entrypoint.sh .
