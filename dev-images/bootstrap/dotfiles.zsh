@@ -1,6 +1,5 @@
 #!/usr/bin/zsh
 
-echo "DOT FILES DIR: $DOT_FILES_DIR"
 function cloneRepo() {
     local repoName=$1
     local targetDir=$2
@@ -13,7 +12,7 @@ function cloneRepo() {
     fi
 }
 
-cloneRepo "https://github.com/thomasbellio/mydotfiles.git" $DOT_FILES_DIR
+cloneRepo "https://github.com/thomasbellio/mydotfiles.git" $DOTFILES_DIR
 
-cd $DOT_FILES_DIR && ./install.sh && cd -
+ln -s  $DOTFILES_DIR/zsh/zshrc ~/.zshrc
 
